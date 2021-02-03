@@ -34,7 +34,7 @@ start = time.time()
 for i in range(80):
     pos += i * 500  # 每次往下滾動視窗500單位
     js = "document.documentElement.scrollTop=%d" % pos
-    driver.execute_script(js)
+    driver.execute_script(js) #使用WebDriver執行JavaScript滑動視窗動作
     time.sleep(1)
 
     for element in driver.find_elements_by_xpath(xpath):
@@ -45,7 +45,7 @@ for i in range(80):
             if img_url != None and not img_url in img_url_dic:
                 img_url_dic[img_url] = ''
                 m += 1
-                ext = img_url.split('/')[-1]
+                ext = img_url.split('/')[-1] #以/分割，保留最後元素作為檔名
                 filename = str(m) + '_' + search + '_' + ext + '.jpg'
 
                 print(filename)
