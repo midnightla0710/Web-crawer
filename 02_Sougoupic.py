@@ -24,10 +24,10 @@ def GetSougouImag(search_item,path):
         try:
             # 發送get請求
             f = requests.get(url=url, headers={'Accept-Encoding': ''}) #f = requests.get(url,headers=headers)
-            print('get請求狀態：', f.status_code)
+            print('get請求狀態：', f.status_code) #印出HTTP狀態碼
 
             #解析請求url之json檔
-            js = json.loads(f.text)
+            js = json.loads(f.text) #將json字串轉換為dict
             js_items = js['items']
 
             #擷取圖片url與id
@@ -37,13 +37,13 @@ def GetSougouImag(search_item,path):
                 print('** '+str(m) + '_' + search_item + '_' +img_id +'.jpg **'+' Downloading...')
                 print(img_url)
 
-                # 保存圖片id到imgs_ids，避免重複下載圖片
+                # 保存圖片id到imgs_ids(list)，避免重複下載圖片
                 if img_id != None and not img_id in imgs_ids:
                     imgs_ids.append(img_id)
                     print("儲存此照片id：" + img_id)
                     try:
                         filename = str(m) + '_' + search_item + '_' + img_id + '.jpg'
-                        urllib.request.urlretrieve(img_url, os.path.join(path, filename))
+                        urllib.request.urlretrieve(img_url, os.path.join(path, filename)) #將URL的檔案儲存到本地端
                         time.sleep(float(random.randint(100, 200)) / 200)
                         m += 1
                     except Exception as e:
