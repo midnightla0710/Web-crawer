@@ -66,21 +66,3 @@ sec = spend - 3600 * hour - 60 * minu
 print(f'一共花費了{hour}小時{minu}分鐘{sec}秒')
 
 driver.close()
-
-
-# js_final = json.dumps(img_url_dic)
-# 将数据存储到json文件中
-# with open('data_json.json', 'a+', encoding='utf-8') as f:
-#     json.dump(data_list, f, ensure_ascii=False, indent=4)
-# print('json文件写入完成')
-# # 将数据存入csv文件中
-# # 表头
-# csv_title = data_list[0].keys()
-# with open('data_csv.csv', 'w', encoding='utf-8', newline='') as f:
-#     writer = csv.writer(f)
-#     # 写入表头
-#     writer.writerow(csv_title)
-#     # 批量写入表头
-#     for row in data_list:
-#         writer.writerow(row.values())
-# print('csv文件写入完成')
